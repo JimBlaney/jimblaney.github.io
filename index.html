@@ -2,26 +2,125 @@
 <html lang="en">
   <head>
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
 
     <title>blaney.io</title>
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap-social.css">
+
+    <style>
+      .btn-link-twitter,
+      .btn-link-twitter:hover {
+        text-decoration: none;
+        color: #55ACEE;
+      }
+
+      .btn-link-github,
+      .btn-link-github:hover {
+        text-decoration: none;
+        color: #444444;
+      }
+
+      .btn-link-linkedin,
+      .btn-link-linkedin:hover {
+        text-decoration: none;
+        color: #007BB6;
+      }
+
+      .navbar-brand a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      .content-main {
+        min-height: 500px;
+      }
+
+      .header {
+        margin-bottom: 15px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        background-color: #fff;
+      }
+
+      .header a,
+      .header a:hover {
+        color: #333;
+        text-decoration: none;
+        line-height: 18px;
+        font-size: 18px;
+      }
+
+      .header .active {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+
+      .footer {
+        margin-top: 15px;
+        padding-top: 8px;
+        border-top: 1px solid #eee;
+        text-align: center;
+        background-color: #fff;
+      }
+    </style>
 
   </head>
   <body>
 
     <script type="text/x-handlebars" data-template-name="application">
-      <h1>come back later!</h1>
+      <div class="navbar navbar-static-top">
+        <div class="container">
+          <div class="header">
+            {{#link-to 'index' classNames="btn btn-link"}}
+              <img src="images/logo.png">
+              blaney.io
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
 
-      {{outlet}}
+      <div class="container">
+        <div class="content-main">
+          {{outlet}}
+        </div>
+      </div>
+
+      <div class="navbar-fixed-bottom">
+        <div class="container">
+          <div class="footer">
+            <ul class="list-inline">
+              <li>
+                <a class="btn btn-link btn-link-github" href="https://github.com/JimBlaney" target="_blank">
+                  <i class="fa fa-lg fa-github"></i>
+                </a>
+              </li>
+              <li>
+                <a class="btn btn-link btn-link-twitter" href="https://twitter.com/JimBlaney" target="_blank">
+                  <i class="fa fa-lg fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a class="btn btn-link btn-link-linkedin" href="https://linkedin.com/in/JimBlaney" target="_blank">
+                  <i class="fa fa-lg fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="index">
-      <h2>for real</h2>
+      <p class="lead">There doesn't seem to be anything here... yet.</p>
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
