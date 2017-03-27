@@ -258,17 +258,17 @@
           <div class="footer">
             <ul class="list-inline">
               <li>
-                <a class="btn btn-link btn-link-github" href="https://github.com/JimBlaney" target="_blank">
+                <a class="btn btn-link btn-link-github" href="https://github.com/JimBlaney" target="_blank" onclick="trackOutboundLink('https://github.com/JimBlaney'); return false;">
                   <i class="fa fa-lg fa-github"></i>
                 </a>
               </li>
               <li>
-                <a class="btn btn-link btn-link-twitter" href="https://twitter.com/JimBlaney" target="_blank">
+                <a class="btn btn-link btn-link-twitter" href="https://twitter.com/JimBlaney" target="_blank" onclick="trackOutboundLink('https://twitter.com/JimBlaney'); return false;">
                   <i class="fa fa-lg fa-twitter"></i>
                 </a>
               </li>
               <li>
-                <a class="btn btn-link btn-link-linkedin" href="https://linkedin.com/in/JimBlaney" target="_blank">
+                <a class="btn btn-link btn-link-linkedin" href="https://linkedin.com/in/JimBlaney" target="_blank" onclick="trackOutboundLink('https://linkedin.com/in/JimBlaney'); return false;">
                   <i class="fa fa-lg fa-linkedin"></i>
                 </a>
               </li>
@@ -308,6 +308,19 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-96339839-1', 'auto');
 ga('send', 'pageview');
+
+/**
+* Function that tracks a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}
 </script>
 <!-- End Google Analytics -->
   </body>
